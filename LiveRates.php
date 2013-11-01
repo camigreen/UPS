@@ -11,7 +11,7 @@
  * @build		20120823
  */
 
-class Ups_Live_Rates extends Base_Ups
+class Ups_LiveRates extends Ups_Base
 {
 
     /**
@@ -656,7 +656,7 @@ class Ups_Live_Rates extends Base_Ups
         
 }
 
-class Ups_Live_Rates_Response extends Base_UPS_Response {
+class Ups_LiveRatesResponse extends Ups_BaseResponse{
 
 	public function __construct($data = array())
 	{

@@ -11,7 +11,7 @@
  * @build		20120823
  */
 
-abstract class Base_UPS_Response {
+abstract class Ups_BaseResponse {
 	
 	/**
 	 * UPS Success Constant

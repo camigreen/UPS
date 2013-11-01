@@ -1,12 +1,13 @@
 <?php
 
-require_once 'Ups_Base.php';
-require_once 'Ups_Live_Rates.php';
 
-class Ups extends Base_Ups {
+class Ups_Ups extends Ups_Base {
 	
 	private $available_apis = array(
-		'rates' => 'Ups_Live_Rates.php'
+		'rates' => array(
+            'file' => 'LiveRates.php',
+            'class' => 'Ups_LiveRates'
+        )
 	);
 	
 	public function __construct($data, $load_apis = FALSE)
@@ -23,11 +24,9 @@ class Ups extends Base_Ups {
 			$apis = $this->available_apis;
 		}
 		
-		foreach($apis as $obj => $file)
+		foreach($apis as $obj => $fileInfo)
 		{
-			require_once($file);
-			
-			$class = str_replace('.php', '', $file);
+			require_once($fileInfo['file']);
 			
 			$params = array();
 			
@@ -39,7 +38,7 @@ class Ups extends Base_Ups {
 				}
 			}
 			
-			$this->$obj = new $class($params);
+			$this->$obj = new $fileInfo['class']($params);
 		}
 	}
 }

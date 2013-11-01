@@ -10,9 +10,7 @@
  * @build		20120823
  */
 
-require_once 'Ups_Base_Response.php';
-
-abstract class Base_Ups
+abstract class Ups_Base
 {
     /**
 	 * Base API URL
